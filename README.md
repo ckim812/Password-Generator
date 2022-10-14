@@ -1,12 +1,10 @@
 # Password-Generator
 
-## 03 JavaScript: Password Generator
-Modified starter code to create an application that enables employees to generate random passwords based on criteria that they’ve selected. This app runs in the browser and will feature dynamically updated HTML and CSS powered by JavaScript code. Responsive user interface adapts to multiple screen sizes.
+## Description
 
-The password can include special characters. 
-[list of password special characters](https://www.owasp.org/index.php/Password_special_characters) from the OWASP Foundation.
-
----
+```
+The goal of this project was to create an application that outputs a randomized password that may include lowercase letters, uppercase letters, numbers and special characters.
+```
 
 ## User Story
 
@@ -36,10 +34,36 @@ WHEN the password is generated
 THEN the password is either displayed in an alert or written to the page
 ```
 
----
+## Table of Contents
 
-# [Here is a link to the deployed website](https://ckim812.github.io/Password-Generator/)
+- [Link to deployed website](#Link-to-deployed-website)
+- [Usage](#usage)
+- [Credits](#credits)
+- [Technologies Used](#Technologies-Used)
 
-## Application Preview
+## Link-to-deployed-website
+
+[Click here to go to the deployed website.](https://ckim812.github.io/Password-Generator/)
+
+## Usage
+
+```
+Press 'Generate Password' button.
+Input password length (8-128 characters)
+Input y or n for lowercase letters, uppercase letters, numbers and special characters.
+Randomized password will be shown in the box.
+```
 
 ![alt text](./Password%20Generator%20Preview.png)
+
+## Technologies Used
+
+```
+HTML, CSS, JS
+```
+
+## Credits
+
+```
+Created by Charles Kim.
+```
