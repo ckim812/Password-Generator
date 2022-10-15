@@ -8,79 +8,42 @@ function writePassword() {
   passwordText.value = generatePassword();
 
   function generatePassword() {
-    var generatedRandomPassword = [];
+    var generatedRandomPassword = "";
+    var characters = "";
 
     // determine password length
-    var pwLength = window.prompt("# of values");
-    while (pwLength < 8 || pwLength > 128) {
-      window.alert("password length must be between 8-128 characters");
-      pwLength = window.prompt("# of values");
+    var pwLength = prompt(
+      "What would you like your password length to be? (must be between 8-128 characters)"
+    );
+    if (pwLength < 8 || pwLength > 128) {
+      alert("Password length must be between 8-128 characters.");
+      return generatePassword();
     }
 
     // determine if lowercase characters should be used in the password
-    var lc = window.prompt("lowercase?");
-    while (lc !== "y" && lc !== "n") {
-      window.alert("response must be either 'y' or 'n'");
-      var lc = window.prompt("lowercase?");
-    }
+    var lc = confirm("Would you like to use lowercase characters?");
+    if (lc) characters += "abcdefghijklmnopqrstuvwxyz";
 
     // determine if uppercase characters should be used in the password
-    var uc = window.prompt("uppercase?");
-    while (uc !== "y" && uc !== "n") {
-      window.alert("response must be either 'y' or 'n'");
-      var uc = window.prompt("uppercase?");
-    }
+    var uc = confirm("Would you like to use uppercase characters?");
+    if (uc) characters += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
     // determine if numeric characters should be used in the password
-    var num = window.prompt("numbers?");
-    while (num !== "y" && num !== "n") {
-      window.alert("response must be either 'y' or 'n'");
-      var num = window.prompt("numbers?");
-    }
+    var num = confirm("Would you like to use numeric characters?");
+    if (num) characters += "0123456789";
 
     // determine if special characters should be used in the password
-    var sc = window.prompt("special?");
-    while (sc !== "y" && sc !== "n") {
-      window.alert("response must be either 'y' or 'n'");
-      var sc = window.prompt("special?");
-    }
-
-    // define each type of characters
-    var lcChar = "abcdefghijklmnopqrstuvwxyz";
-    var ucChar = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    var numChar = "0123456789";
-    var spChar = " !#$%&'()*+,-./:;<=>?@[]^_`{|}~";
-
-    var characters;
-
-    // check which characters to use; add chosen characters to character string to use for the random generated password
-    if (lc === "y") {
-      characters += lcChar;
-    } else {
-    }
-    if (uc === "y") {
-      characters += ucChar;
-    } else {
-    }
-    if (num === "y") {
-      characters += numChar;
-    } else {
-    }
-    if (sc === "y") {
-      characters += spChar;
-    } else {
-    }
+    var sp = confirm("Would you like to use special characters?");
+    if (sp) characters += " !#$%&'()*+,-./:;<=>?@[]^_`{|}~";
 
     // console log out characters and character length to help debug
     console.log(characters);
     console.log(characters.length);
 
     // for loop to generate a random password using chosen characters
-    for (var i = 0; i < pwLength; i++) {
-      generatedRandomPassword += characters.charAt(
-        Math.floor(Math.random() * characters.length)
-      );
-    }
+    for (var i = 0; i < pwLength; i++)
+      generatedRandomPassword +=
+        characters[Math.floor(Math.random() * characters.length)];
 
     // return generated random password to use for passwordText variable
     return generatedRandomPassword;
